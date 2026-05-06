@@ -1,0 +1,36 @@
+{
+  "name": "tm-02",
+  "version": "1.0.0",
+  "description": "Enhanced Task Manager application with MySQL database integration, JWT authentication, and role-based access control",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:db": "node -e \"require('dotenv').config(); const mysql = require('mysql2/promise'); const pool = mysql.createPool({host: process.env.DB_HOST, user: process.env.DB_USER, password: process.env.DB_PASS, database: process.env.DB_NAME}); pool.getConnection().then(conn => {console.log('✓ Database connected'); conn.release();}).catch(err => console.error('✗ Error:', err.message));\""
+  },
+  "keywords": [
+    "task-manager",
+    "authentication",
+    "jwt",
+    "mysql",
+    "rest-api",
+    "crud"
+  ],
+  "author": "Task Manager Team",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.22.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
